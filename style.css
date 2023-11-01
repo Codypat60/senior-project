@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #F0F8FF;
+}
+
+.nav-bar {
+    background-color: #4682B4;
+    height: 70px;
+    padding: 10px;
+    border-bottom: 3px solid black;
+}
+
+.nav-text {
+    width: 300px;
+    height: 100%;
+    color: #F0F8FF;
+}
+
