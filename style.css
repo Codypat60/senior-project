@@ -3,6 +3,11 @@
     font-family: sans-serif;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     background-color: #F0F8FF;
 }
@@ -20,3 +25,21 @@ body {
     color: #F0F8FF;
 }
 
+.main-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.inner-div {
+    background-color: #F2F2F2;
+    border: 2px solid black;
+    padding: 20px
+}
+
+.right-content {
+    
+}
