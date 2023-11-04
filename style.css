@@ -64,3 +64,17 @@ body {
 .p-div p {
     padding-bottom: 30px
 }
+
+.footer-content {
+    background-color: #4682B4;
+    height: 20px;
+    padding: 10px;
+}
+
+.footer-link {
+    color: #F0F8FF;
+    text-decoration: none;
+    background-color: navy;
+    padding: 5px;
+    border-radius: 5px
+}
