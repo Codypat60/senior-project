@@ -40,10 +40,10 @@ body {
     border: 2px solid black;
     padding: 20px;
     margin-bottom: 70px;
-    border-radius: 25px
+    border-radius: 25px;
 }
 
-.box-header {
+.head-div {
     background-color: #DBDBDB;
     text-align: center;
     padding: 10px;
