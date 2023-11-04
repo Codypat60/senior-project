@@ -39,9 +39,13 @@ body {
     background-color: #F2F2F2;
     border: 2px solid black;
     padding: 20px;
-    margin-bottom: 70px;
     border-radius: 25px;
 }
+
+.inner-div:nth-child(odd) {
+    margin-bottom: 40px;
+}
+
 
 .head-div {
     background-color: #DBDBDB;
@@ -49,4 +53,14 @@ body {
     padding: 10px;
     border: 2px solid black;
     border-radius: 15px
+}
+
+.p-div {
+    text-align: center;
+    padding-top: 20%;
+    font-size: larger;
+}
+
+.p-div p {
+    padding-bottom: 30px
 }
