@@ -69,6 +69,7 @@ body {
     background-color: #4682B4;
     height: 20px;
     padding: 10px;
+    border-top: 3px solid black;
 }
 
 .footer-link {
