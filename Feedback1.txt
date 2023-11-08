@@ -1,0 +1,12 @@
+Two conversations with an instructor and private pilot:
+
+They like the color scheme, reminds them of aviation, that was the goal
+
+Asked about borders around the bottom buttons, will add
+
+Said the bolding on the headers may be too much, might try to reduce font size?
+
+Said the strength of the borders on the cells are too strong, may need to change opacity
+
+Also mentioned that link section should have footer.
+
