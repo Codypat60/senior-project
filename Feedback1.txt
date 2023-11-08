@@ -8,5 +8,5 @@ Said the bolding on the headers may be too much, might try to reduce font size?
 
 Said the strength of the borders on the cells are too strong, may need to change opacity
 
-Also mentioned that link section should have footer.
+Also mentioned that link section should have footer border.
 
