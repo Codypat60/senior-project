@@ -55,6 +55,11 @@ body {
     box-shadow: 4px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
+.head-div h2 {
+    font-weight: lighter;
+}
+
+
 .p-div {
     text-align: center;
     padding-top: 20%;
