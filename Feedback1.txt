@@ -10,3 +10,4 @@ Said the strength of the borders on the cells are too strong, may need to change
 
 Also mentioned that link section should have footer border.
 
+Spoke with multiple pilots, stated they would like links on right side
