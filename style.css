@@ -17,12 +17,20 @@ body {
     height: 70px;
     padding: 10px;
     border-bottom: 3px solid black;
+    display: flex;
 }
 
 .nav-text {
     width: 300px;
     height: 100%;
     color: #F0F8FF;
+}
+
+.top-img {
+    width: 200px;
+    height: 70px;
+    margin-left: 20%;
+    border-radius: 20px
 }
 
 .main-content {
