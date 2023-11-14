@@ -3,6 +3,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
+// Random port, no reason
 const PORT = 3025;
 
 app.use(cors());
@@ -36,7 +37,7 @@ app.get('/api/data/taf', async (req, res) => {
   }
 });
 
-
+// Endpoint for Airport data
 app.get('/api/data/airport', async (req, res) => {
     try {
       const response = await axios.get('https://aviationweather.gov/api/data/airport', {
