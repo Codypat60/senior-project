@@ -1,3 +1,4 @@
+// METAR information function
 let metarData;
 
 async function getMetarData() {
@@ -18,6 +19,7 @@ fetchButton.addEventListener('click', () => {
   getMetarData();
 });
 
+// TAF information function
 let tafData;
 
 const getTafData = async () => {
@@ -40,22 +42,24 @@ testButton.addEventListener('click', () => {
   getTafData();
 });
 
-let sigmetData;
 
-const getSigmetData = async () => {
+// Airport information function
+let airportData;
+
+const getAirportData = async () => {
   try {
     const response = await fetch('http://localhost:3025/api/data/airport?ids=KHUF&format=json');
     const data = await response.json();
 
-    sigmetData = data;
+    airportData = data;
 
-    console.log('Data:', sigmetData);
+    console.log('Data:', airportData);
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-const sigButton = document.getElementById('sigButton');
-sigButton.addEventListener('click', () => {
-  getSigmetData()
+const airButton = document.getElementById('airportButton');
+airButton.addEventListener('click', () => {
+  getAirportData()
 })
