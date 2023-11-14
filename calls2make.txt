@@ -4,3 +4,6 @@ TAF info - https://aviationweather.gov/api/data/taf
 
 Airport info - https://aviationweather.gov/api/data/airport?ids=KMCI
 
+Info:
+
+There is no direct amount of calls listed that the website will stop responding at.

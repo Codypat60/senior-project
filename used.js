@@ -1,6 +1,6 @@
 let metarData;
 
-async function fetchData() {
+async function getMetarData() {
   try {
     const response = await fetch('http://localhost:3025/api/data/metar?ids=KMCI');
     const data = await response.json();
@@ -13,14 +13,14 @@ async function fetchData() {
   }
 }
 
-const fetchButton = document.getElementById('fetchButton');
+const fetchButton = document.getElementById('metarButton');
 fetchButton.addEventListener('click', () => {
-  fetchData();
+  getMetarData();
 });
 
 let tafData;
 
-async function testData() {
+const getTafData = async () => {
   try {
     const response = await fetch('http://localhost:3025/api/data/taf?ids=KMCI');
     const data = await response.json();
@@ -33,11 +33,11 @@ async function testData() {
   }
 }
 
-const testButton = document.getElementById('testButton');
+const testButton = document.getElementById('tafButton');
 testButton.addEventListener('click', () => {
   console.log('test');
 
-  testData();
+  getTafData();
 });
 
 let sigmetData;
