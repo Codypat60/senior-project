@@ -2,9 +2,5 @@ METAR info - https://aviationweather.gov/api/data/metar?ids=KMCI
 
 TAF info - https://aviationweather.gov/api/data/taf
 
-SIGMET - https://aviationweather.gov/api/data/airsigmet
-
-Wind & Temp - https://aviationweather.gov/api/data/windtemp
-
 Airport info - https://aviationweather.gov/api/data/airport?ids=KMCI
 
