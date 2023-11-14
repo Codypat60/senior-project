@@ -1,7 +1,7 @@
 // METAR information function
 let metarData;
 
-async function getMetarData() {
+const getMetarData = async () => {
   try {
     const response = await fetch('http://localhost:3025/api/data/metar?ids=KMCI');
     const data = await response.json();
