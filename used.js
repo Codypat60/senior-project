@@ -63,3 +63,6 @@ const airButton = document.getElementById('airportButton');
 airButton.addEventListener('click', () => {
   getAirportData()
 })
+
+// All information is verified coming through as should, next steps are sorting 
+// and parsing data into usable formats.
