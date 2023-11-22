@@ -21,10 +21,10 @@ const getMetarData = async () => {
   }
 }
 
-const fetchButton = document.getElementById('metarButton');
-fetchButton.addEventListener('click', () => {
-  getMetarData();
-});
+// const fetchButton = document.getElementById('metarButton');
+// fetchButton.addEventListener('click', () => {
+//   getMetarData();
+// });
 
 // TAF information function
 let tafData;
@@ -42,10 +42,10 @@ const getTafData = async () => {
   }
 }
 
-const testButton = document.getElementById('tafButton');
-testButton.addEventListener('click', () => {
-  getTafData();
-});
+// const testButton = document.getElementById('tafButton');
+// testButton.addEventListener('click', () => {
+//   getTafData();
+// });
 
 
 // Airport information function
@@ -69,10 +69,10 @@ const getAirportData = async () => {
   }
 }
 
-const airButton = document.getElementById('airportButton');
-airButton.addEventListener('click', () => {
-  getAirportData()
-})
+// const airButton = document.getElementById('airportButton');
+// airButton.addEventListener('click', () => {
+//   getAirportData()
+// })
 
 // All information is verified coming through as should, next steps are sorting 
 // and parsing data into usable formats.
