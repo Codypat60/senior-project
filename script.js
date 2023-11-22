@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 // Random port, no reason
-const PORT = 3025;
+const PORT = 5500;
 
 app.use(cors());
 app.use(express.json());
