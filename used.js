@@ -10,10 +10,23 @@ let metarData;
 
 const getMetarData = async () => {
   try {
-    const response = await fetch('http://localhost:3250/api/data/metar?ids=KMCI');
+    const response = await fetch('http://localhost:3250/api/data/metar?ids=KHUF&format=json');
     const data = await response.json();
 
     metarData = data;
+
+    let tmp = ((metarData[0].temp) * 1.8 + 32)
+
+    document.getElementById('second-top-p').innerText = `${tmp}°F`;
+    
+
+    let pres = ((metarData[0].altim) * 0.02953)
+    
+    document.getElementById('second-top-p').innerText = `${tmp}°F`;
+    document.getElementById('second-top-p').innerText = `${tmp}°F`;
+
+    console.log(pres.toFixed(2))
+
 
     console.log('METAR Data:', metarData);
   } catch (error) {
