@@ -62,7 +62,17 @@ const getAirportData = async () => {
     let runway1 = airportData[0].runways[0].id
     let runway2 = airportData[0].runways[1].id
 
-    console.log(`Runways ${runway1} & ${runway2} are open`)
+    let rw = `Runways: ${runway1} & ${runway2}`
+
+    let frequency1 = airportData[0].freqs[0].freq
+    let frequency2 = airportData[0].freqs[1].freq
+
+
+    let fq = `ATIS: ${frequency1} & Tower: ${frequency2}`
+
+    document.getElementById('first-top-p-4').innerText = fq;
+
+    document.getElementById('first-top-p-3').innerText = rw;
 
     document.getElementById('first-top-p-2').innerText = airportData[0].state;
     document.getElementById('first-top-p').innerText = airportData[0].id;
