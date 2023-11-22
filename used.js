@@ -53,6 +53,12 @@ const getMetarData = async () => {
   
     document.getElementById('first-bottom-p').innerText = time;
 
+    document.getElementById('third-bottom-p').innerText = `${metarData[0].wdir}°`
+
+    let wind = metarData[0].wspd
+    
+    document.getElementById('third-bottom-p-2').innerText = `${wind} Knots`
+
     console.log('METAR Data:', metarData);
   } catch (error) {
     console.error('Error:', error);
