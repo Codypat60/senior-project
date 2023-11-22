@@ -59,6 +59,11 @@ const getAirportData = async () => {
     airportData = data;
 
 
+    let runway1 = airportData[0].runways[0].id
+    let runway2 = airportData[0].runways[1].id
+
+    console.log(`Runways ${runway1} & ${runway2} are open`)
+
     document.getElementById('first-top-p-2').innerText = airportData[0].state;
     document.getElementById('first-top-p').innerText = airportData[0].id;
     
