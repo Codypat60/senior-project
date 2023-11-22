@@ -59,8 +59,9 @@ const getAirportData = async () => {
     airportData = data;
 
 
-
     document.getElementById('first-top-p-2').innerText = airportData[0].state;
+    document.getElementById('first-top-p').innerText = airportData[0].id;
+    
 
     console.log('Airport Data:', airportData);
   } catch (error) {
