@@ -79,11 +79,12 @@ body {
 }
 
 .footer-content {
+    display: flex;
     background-color: #4682B4;
     height: 20px;
     padding: 10px;
     border-top: 3px solid black;
-    padding-left: 60%
+    align-items: center;
 }
 
 .footer-link {
@@ -93,4 +94,8 @@ body {
     padding: 5px;
     border-radius: 5px;
     border: 2px solid grey;
+}
+
+.footer-container {
+    margin-left: auto;
 }
