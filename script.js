@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 // Random port, no reason
-const PORT = 5500;
+const PORT = 3250;
 
 app.use(cors());
 app.use(express.json());
@@ -13,6 +13,7 @@ app.use(express.json());
 app.get('/api/data/metar', async (req, res) => {
   try {
     const response = await axios.get('https://aviationweather.gov/api/data/metar', {
+      mode: 'cors',
       params: req.query,
     });
 

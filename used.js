@@ -3,7 +3,7 @@ let metarData;
 
 const getMetarData = async () => {
   try {
-    const response = await fetch('http://localhost:5500/api/data/metar?ids=KMCI');
+    const response = await fetch('http://localhost:3250/api/data/metar?ids=KMCI');
     const data = await response.json();
 
     metarData = data;
@@ -24,7 +24,7 @@ let tafData;
 
 const getTafData = async () => {
   try {
-    const response = await fetch('http://localhost:5500/api/data/taf?ids=KMCI');
+    const response = await fetch('http://localhost:3250/api/data/taf?ids=KMCI');
     const data = await response.json();
 
     tafData = data;
@@ -48,7 +48,7 @@ let airportData;
 
 const getAirportData = async () => {
   try {
-    const response = await fetch('http://localhost:5500/api/data/airport?ids=KHUF&format=json');
+    const response = await fetch('http://localhost:3250/api/data/airport?ids=KHUF&format=json');
     const data = await response.json();
 
     airportData = data;
