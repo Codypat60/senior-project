@@ -41,8 +41,17 @@ const getMetarData = async () => {
       document.getElementById('fourth-top-p-2').innerText = `Completely Non-Clear`;
       document.getElementById('fourth-top-p-3').innerText = `LIFR`;
     }
-
+    
     document.getElementById('fourth-top-p').innerText = `${vis} Miles`
+    
+    const now = new Date();
+    
+    const hours = now.getUTCHours();
+    const minutes = now.getUTCMinutes();
+    
+    let time = `${hours}:${minutes} UTC`
+  
+    document.getElementById('first-bottom-p').innerText = time;
 
     console.log('METAR Data:', metarData);
   } catch (error) {
