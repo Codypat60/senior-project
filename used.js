@@ -8,7 +8,7 @@ const getMetarData = async () => {
 
     metarData = data;
 
-    console.log('Data:', metarData);
+    console.log('METAR Data:', metarData);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -29,7 +29,7 @@ const getTafData = async () => {
 
     tafData = data;
 
-    console.log('Data:', tafData);
+    console.log('TAF Data:', tafData);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -37,8 +37,6 @@ const getTafData = async () => {
 
 const testButton = document.getElementById('tafButton');
 testButton.addEventListener('click', () => {
-  console.log('test');
-
   getTafData();
 });
 
@@ -53,7 +51,7 @@ const getAirportData = async () => {
 
     airportData = data;
 
-    console.log('Data:', airportData);
+    console.log('Airport Data:', airportData);
   } catch (error) {
     console.error('Error:', error);
   }
