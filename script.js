@@ -51,6 +51,8 @@ app.get('/api/data/airport', async (req, res) => {
     }
   });
   
+  // This will be ran on a local port, since I do not own
+  // a hosting service or have an exposed IP.
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
