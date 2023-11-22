@@ -15,18 +15,34 @@ const getMetarData = async () => {
 
     metarData = data;
 
-    let tmp = ((metarData[0].temp) * 1.8 + 32)
+    let tmp = ((metarData[0].temp) * 1.8 + 32).toFixed(2)
 
     document.getElementById('second-top-p').innerText = `${tmp}°F`;
     
 
-    let pres = ((metarData[0].altim) * 0.02953)
+    let pres = ((metarData[0].altim) * 0.02953).toFixed(2)
+    let bari = metarData[0].altim
     
-    document.getElementById('second-top-p').innerText = `${tmp}°F`;
-    document.getElementById('second-top-p').innerText = `${tmp}°F`;
+    document.getElementById('third-top-p').innerText = `${bari} mb`;
+    document.getElementById('third-top-p-2').innerText = `${pres} inHg`;
+    
+    let vis = metarData[0].visib
 
-    console.log(pres.toFixed(2))
+    if (vis == '10+' || vis < 10 && vis >= 6) {
+      document.getElementById('fourth-top-p-2').innerText = `Clear`;
+      document.getElementById('fourth-top-p-3').innerText = `VFR`;
+    } else if (vis <= 5 && vis >= 4) {
+      document.getElementById('fourth-top-p-2').innerText = `Not As Clear`;
+      document.getElementById('fourth-top-p-3').innerText = `MVFR`;
+    } else if (vis <= 3 && vis >= 2) {
+      document.getElementById('fourth-top-p-2').innerText = `Non-Clear`;
+      document.getElementById('fourth-top-p-3').innerText = `IFR`;
+    } else if (vis <= 1) {
+      document.getElementById('fourth-top-p-2').innerText = `Completely Non-Clear`;
+      document.getElementById('fourth-top-p-3').innerText = `LIFR`;
+    }
 
+    document.getElementById('fourth-top-p').innerText = `${vis} Miles`
 
     console.log('METAR Data:', metarData);
   } catch (error) {
