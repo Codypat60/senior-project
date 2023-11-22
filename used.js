@@ -1,3 +1,10 @@
+window.onload = function() {
+  getMetarData();
+  getTafData();
+  getAirportData();
+};
+
+
 // METAR information function
 let metarData;
 
