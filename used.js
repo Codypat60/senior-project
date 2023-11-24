@@ -75,14 +75,43 @@ const getMetarData = async () => {
 
     let dir = "";
 
-    if (metarData[0].wdir == 360 || metarData[0].wdir == 0) {
-      dir = "S";
-    } else if (metarData[0].wdir == 45) {
+    if (metarData[0].wdir >= 341 && metarData[0].wdir <= 360 || metarData[0].wdir >= 0 && metarData[0].wdir <= 29) {
+      dir = "N";
+    } else if (metarData[0].wdir >= 20 && metarData[0].wdir <= 30) {
+      dir = "NNE"
+    } else if (metarData[0].wdir >=31 && metarData[0].wdir <= 59) {
+      dir = "NE"
+    } else if (metarData[0].wdir >= 60 && metarData[0].wdir <= 70) {
+      dir = "ENE"
+    } else if (metarData[0].wdir >= 71 && metarData[0].wdir <= 109) {
+      dir = "E"
+    } else if (metarData[0].wdir >= 110 && metarData[0].wdir <= 120) {
+      dir = "ESE"
+    } else if (metarData[0].wdir >= 121 && metarData[0].wdir <= 149) {
+      dir = "SE"
+    } else if (metarData[0].wdir >= 150 && metarData[0].wdir <= 160) {
+      dir = "SSE"
+    } else if (metarData[0].wdir >= 161 && metarData[0].wdir <= 199) {
+      dir = "S"
+    } else if (metarData[0].wdir >= 200 && metarData[0].wdir <= 210) {
+      dir = "SSW"
+    } else if (metarData[0].wdir >= 211 && metarData[0].wdir <= 239) {
+      dir = "SW"
+    } else if (metarData[0].wdir >= 240 && metarData[0].wdir <= 250) {
+      dir = "WSW"
+    } else if (metarData[0].wdir >= 251 && metarData[0].wdir <= 289) {
+      dir = "W"
+    } else if (metarData[0].wdir >= 290 && metarData[0].wdir <= 300) {
+      dir = "WNW"
+    } else if (metarData[0].wdir >= 301 && metarData[0].wdir <= 329) {
+      dir = "NW"
+    } else if (metarData[0].wdir >= 330 && metarData[0].wdir <= 340) {
+      dir = "NWN"
     }
 
     document.getElementById(
       "third-bottom-p"
-    ).innerText = `${metarData[0].wdir}°`;
+    ).innerText = `${metarData[0].wdir}° ${dir}`;
 
     let wind = metarData[0].wspd;
 
