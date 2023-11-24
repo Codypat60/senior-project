@@ -16,15 +16,16 @@ const getMetarData = async () => {
     metarData = data;
 
     let tmp = ((metarData[0].temp) * 1.8 + 32).toFixed(2)
-
-    document.getElementById('second-top-p').innerText = `${tmp}°F`;
+    let dew = ((metarData[0].dewp) * 1.8 + 32).toFixed(2)
     
+    document.getElementById('second-top-p').innerText = `Currently ${tmp}°F`;
+    document.getElementById('second-top-p-2').innerText = `Dew Point: ${dew}°F`;
 
     let pres = ((metarData[0].altim) * 0.02953).toFixed(2)
     let bari = metarData[0].altim
     
-    document.getElementById('third-top-p').innerText = `${bari} mb`;
-    document.getElementById('third-top-p-2').innerText = `${pres} inHg`;
+    document.getElementById('third-top-p').innerText = `${pres} inHg`;
+    document.getElementById('third-top-p-2').innerText = `${bari} mb`;
     
     let vis = metarData[0].visib
 
