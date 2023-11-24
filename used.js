@@ -15,6 +15,18 @@ const getMetarData = async () => {
 
     metarData = data;
 
+    let prec = metarData[0].precip
+
+    if (prec != null) {
+      document.getElementById('second-bottom-p').innerText = `Precipitation is in the area`
+    }
+
+    let snow = metarData[0].snow
+
+    if (snow != null) {
+      document.getElementById('second-bottom-p-2').innerText = `Snow is in the area`
+    }
+
     let tmp = ((metarData[0].temp) * 1.8 + 32).toFixed(2)
     let dew = ((metarData[0].dewp) * 1.8 + 32).toFixed(2)
     
