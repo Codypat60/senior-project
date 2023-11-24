@@ -81,7 +81,7 @@ const getMetarData = async () => {
       dir = "N";
     } else if (metarData[0].wdir >= 20 && metarData[0].wdir <= 30) {
       dir = "NNE"
-    } else if (metarData[0].wdir >=31 && metarData[0].wdir <= 59) {
+    } else if (metarData[0].wdir >= 31 && metarData[0].wdir <= 59) {
       dir = "NE"
     } else if (metarData[0].wdir >= 60 && metarData[0].wdir <= 70) {
       dir = "ENE"
