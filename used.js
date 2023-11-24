@@ -10,7 +10,7 @@ let metarData;
 const getMetarData = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3250/api/data/metar?ids=KHUF&format=json"
+      "http://localhost:3250/api/data/metar?ids=KGLD&format=json"
     );
     const data = await response.json();
 
@@ -56,9 +56,7 @@ const getMetarData = async () => {
       document.getElementById("fourth-top-p-2").innerText = `Non-Clear`;
       document.getElementById("fourth-top-p-3").innerText = `IFR`;
     } else if (vis <= 1) {
-      document.getElementById(
-        "fourth-top-p-2"
-      ).innerText = `Completely Non-Clear`;
+      document.getElementById("fourth-top-p-2").innerText = `Completely Non-Clear`;
       document.getElementById("fourth-top-p-3").innerText = `LIFR`;
     }
 
@@ -109,13 +107,37 @@ const getMetarData = async () => {
       dir = "NWN"
     }
 
-    document.getElementById(
-      "third-bottom-p"
-    ).innerText = `${metarData[0].wdir}° ${dir}`;
+    document.getElementById("third-bottom-p").innerText = `${metarData[0].wdir}° ${dir}`;
 
     let wind = metarData[0].wspd;
 
     document.getElementById("third-bottom-p-2").innerText = `${wind} Knots`;
+
+    let test = metarData[0].clouds
+
+    for (let i = 0; i < test.length; i++) {
+      const id = `fourth-bottom-p-${i + 1}`;
+
+      if (test[i].cover == "FEW") {
+        test[i].cover = "Few"
+      } else if (test[i].cover == "OVC") {
+        test[i].cover = "Overcast"
+      } else if (test[i].cover == "BKN") {
+        test[i].cover = "Broken"
+      } else if (test[i].cover == "CLR") {
+        test[i].cover = "Clear"
+      } else if (test[i].cover == "SCT") {
+        test[i].cover = "Scattered"
+      }
+
+
+      console.log(id)
+      const ele = document.getElementById(id)
+      
+      ele.innerText = `${test[i].cover} @ ${test[i].base}ft`
+    }
+
+    console.log(test)
 
     console.log("METAR Data:", metarData);
   } catch (error) {
