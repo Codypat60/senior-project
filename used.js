@@ -10,7 +10,7 @@ let metarData;
 const getMetarData = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3250/api/data/metar?ids=KGLD&format=json"
+      "http://localhost:3250/api/data/metar?ids=KHUF&format=json"
     );
     const data = await response.json();
 
@@ -50,7 +50,7 @@ const getMetarData = async () => {
       document.getElementById("fourth-top-p-2").innerText = `Clear`;
       document.getElementById("fourth-top-p-3").innerText = `VFR`;
     } else if (vis <= 5 && vis >= 4) {
-      document.getElementById("fourth-top-p-2").innerText = `Not As Clear`;
+      document.getElementById("fourth-top-p-2").innerText = `Less Clear`;
       document.getElementById("fourth-top-p-3").innerText = `MVFR`;
     } else if (vis <= 3 && vis >= 2) {
       document.getElementById("fourth-top-p-2").innerText = `Non-Clear`;
@@ -65,7 +65,11 @@ const getMetarData = async () => {
     const now = new Date();
 
     const hours = now.getUTCHours();
-    const minutes = now.getUTCMinutes();
+    let minutes = String(now.getUTCMinutes());
+
+    if (minutes.length == 1) {
+      minutes = `0${minutes}`
+    }
 
     let time = `${hours}:${minutes} UTC`;
 
@@ -116,6 +120,7 @@ const getMetarData = async () => {
     let test = metarData[0].clouds
 
     for (let i = 0; i < test.length; i++) {
+      
       const id = `fourth-bottom-p-${i + 1}`;
 
       if (test[i].cover == "FEW") {
@@ -128,13 +133,18 @@ const getMetarData = async () => {
         test[i].cover = "Clear"
       } else if (test[i].cover == "SCT") {
         test[i].cover = "Scattered"
+      } else if (test[i].cover == "OVX") {
+        test[i].cover = "Sky Obscured"
       }
 
-
-      console.log(id)
       const ele = document.getElementById(id)
       
-      ele.innerText = `${test[i].cover} @ ${test[i].base}ft`
+      if (test[i].cover == "Clear") {
+        ele.innerText = `${test[i].cover}`
+      } else {
+        ele.innerText = `${test[i].cover} @ ${test[i].base}ft`
+      }
+      
     }
 
     console.log(test)
