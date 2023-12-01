@@ -26,6 +26,14 @@ body {
     color: #F0F8FF;
 }
 
+#nav-box {
+    margin-left: auto;
+    width: 500px;
+    border-radius: 20px;
+    font-size: larger;
+    padding-left: 20px;
+}
+
 .top-img {
     width: 200px;
     height: 70px;
