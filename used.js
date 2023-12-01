@@ -1,8 +1,9 @@
 window.onload = function () {
   getMetarData();
-  getTafData();
   getAirportData();
 };
+
+let ident = 'KHUF'
 
 // METAR information function
 let metarData;
@@ -10,7 +11,7 @@ let metarData;
 const getMetarData = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3250/api/data/metar?ids=KHUF&format=json"
+      `http://localhost:3250/api/data/metar?ids=${ident}&format=json`
     );
     const data = await response.json();
 
@@ -117,37 +118,37 @@ const getMetarData = async () => {
 
     document.getElementById("third-bottom-p-2").innerText = `${wind} Knots`;
 
-    let test = metarData[0].clouds
+    let clouds = metarData[0].clouds
 
-    for (let i = 0; i < test.length; i++) {
+    for (let i = 0; i < clouds.length; i++) {
       
       const id = `fourth-bottom-p-${i + 1}`;
 
-      if (test[i].cover == "FEW") {
-        test[i].cover = "Few"
-      } else if (test[i].cover == "OVC") {
-        test[i].cover = "Overcast"
-      } else if (test[i].cover == "BKN") {
-        test[i].cover = "Broken"
-      } else if (test[i].cover == "CLR") {
-        test[i].cover = "Clear"
-      } else if (test[i].cover == "SCT") {
-        test[i].cover = "Scattered"
-      } else if (test[i].cover == "OVX") {
-        test[i].cover = "Sky Obscured"
+      if (clouds[i].cover == "FEW") {
+        clouds[i].cover = "Few"
+      } else if (clouds[i].cover == "OVC") {
+        clouds[i].cover = "Overcast"
+      } else if (clouds[i].cover == "BKN") {
+        clouds[i].cover = "Broken"
+      } else if (clouds[i].cover == "CLR") {
+        clouds[i].cover = "Clear"
+      } else if (clouds[i].cover == "SCT") {
+        clouds[i].cover = "Scattered"
+      } else if (clouds[i].cover == "OVX") {
+        clouds[i].cover = "Sky Obscured"
       }
 
       const ele = document.getElementById(id)
       
-      if (test[i].cover == "Clear") {
-        ele.innerText = `${test[i].cover}`
+      if (clouds[i].cover == "Clear") {
+        ele.innerText = `${clouds[i].cover}`
       } else {
-        ele.innerText = `${test[i].cover} @ ${test[i].base}ft`
+        ele.innerText = `${clouds[i].cover} @ ${clouds[i].base}ft`
       }
       
     }
 
-    console.log(test)
+    console.log(clouds)
 
     console.log("METAR Data:", metarData);
   } catch (error) {
@@ -155,39 +156,13 @@ const getMetarData = async () => {
   }
 };
 
-// const fetchButton = document.getElementById('metarButton');
-// fetchButton.addEventListener('click', () => {
-//   getMetarData();
-// });
-
-// TAF information function
-let tafData;
-
-const getTafData = async () => {
-  try {
-    const response = await fetch("http://localhost:3250/api/data/taf?ids=KMCI");
-    const data = await response.json();
-
-    tafData = data;
-
-    console.log("TAF Data:", tafData);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
-
-// const testButton = document.getElementById('tafButton');
-// testButton.addEventListener('click', () => {
-//   getTafData();
-// });
-
 // Airport information function
 let airportData;
 
 const getAirportData = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3250/api/data/airport?ids=KHUF&format=json"
+      `http://localhost:3250/api/data/airport?ids=${ident}&format=json`
     );
     const data = await response.json();
 
