@@ -28,10 +28,24 @@ body {
 
 #nav-box {
     margin-left: auto;
-    width: 500px;
+    width: 200px;
     border-radius: 20px;
     font-size: larger;
     padding-left: 20px;
+}
+
+#nav-search-button {
+    margin-left: 10px;
+    width: 100px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #F0F8FF;
+    border: 2px solid grey;
+    font-size: larger;
+}
+
+#nav-search-button:hover {
+    cursor: pointer;
 }
 
 .top-img {

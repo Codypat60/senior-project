@@ -1,14 +1,23 @@
-window.onload = function () {
-  getMetarData();
-  getAirportData();
-};
 
-let ident = 'KHUF'
 
+let input = ''
+
+document.addEventListener("DOMContentLoaded", () => {
+  var inputElement = document.getElementById("nav-box");
+  input = inputElement.value;
+  
+  let ident = input.toUpperCase();
+  
+  window.onload = function () {
+    getMetarData(ident);
+    getAirportData(ident);
+  };
+});
+  
 // METAR information function
 let metarData;
 
-const getMetarData = async () => {
+const getMetarData = async (ident) => {
   try {
     const response = await fetch(
       `http://localhost:3250/api/data/metar?ids=${ident}&format=json`
@@ -159,7 +168,7 @@ const getMetarData = async () => {
 // Airport information function
 let airportData;
 
-const getAirportData = async () => {
+const getAirportData = async (ident) => {
   try {
     const response = await fetch(
       `http://localhost:3250/api/data/airport?ids=${ident}&format=json`
@@ -168,22 +177,32 @@ const getAirportData = async () => {
 
     airportData = data;
 
-    let runway1 = airportData[0].runways[0].id;
-    let runway2 = airportData[0].runways[1].id;
+    let runways = airportData[0].runways
 
-    let rw = `Runways: ${runway1} & ${runway2}`;
-
+    
     let frequency1 = airportData[0].freqs[0].freq;
     let frequency2 = airportData[0].freqs[1].freq;
-
+    
     let fq = `ATIS: ${frequency1} & Tower: ${frequency2}`;
-
+    
     document.getElementById("first-top-p-4").innerText = fq;
-
-    document.getElementById("first-top-p-3").innerText = rw;
-
+    
     document.getElementById("first-top-p-2").innerText = airportData[0].state;
-    document.getElementById("first-top-p").innerText = airportData[0].id;
+    document.getElementById("first-top-p-1").innerText = airportData[0].id;
+    
+    const id = `first-top-p-3`;
+    const ele = document.getElementById(id);
+    
+    let runwaysText = '';
+    
+    for (let i = 0; i < runways.length; i++) {
+      if (i > 0) {
+        runwaysText += " & ";
+      }
+      runwaysText += `${runways[i].id}`;
+    }
+    
+    ele.innerText = `Runways: ${runwaysText}`;
 
     console.log("Airport Data:", airportData);
   } catch (error) {
