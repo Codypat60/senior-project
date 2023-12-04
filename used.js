@@ -173,9 +173,6 @@ const getMetarData = async (ident) => {
       
     }
 
-    console.log(clouds)
-
-    console.log("METAR Data:", metarData);
   } catch (error) {
     console.error("Error:", error);
   }
@@ -195,19 +192,28 @@ const getAirportData = async (ident) => {
 
     let runways = airportData[0].runways
 
-    
-    let frequency1 = airportData[0].freqs[0].freq;
-    let frequency2 = airportData[0].freqs[1].freq;
-    
-    let fq = `ATIS: ${frequency1} & Tower: ${frequency2}`;
-    
-    document.getElementById("first-top-p-4").innerText = fq;
+    let frequency = airportData[0].freqs
+
+    let ele = ""
+
+    ele = document.getElementById("first-top-p-4")
+
+    let freqText = ''
+
+    for (let i = 0; i < frequency.length; i ++) {
+      if (i > 0) {
+        freqText += " & "
+      }
+      freqText += `${frequency[i].freq}`;
+    }
+
+    ele.innerText = `Frequencies: ${freqText}`
     
     document.getElementById("first-top-p-2").innerText = airportData[0].state;
     document.getElementById("first-top-p-1").innerText = airportData[0].id;
     
     const id = `first-top-p-3`;
-    const ele = document.getElementById(id);
+    ele = document.getElementById(id);
     
     let runwaysText = '';
     
@@ -220,16 +226,10 @@ const getAirportData = async (ident) => {
     
     ele.innerText = `Runways: ${runwaysText}`;
 
-    console.log("Airport Data:", airportData);
   } catch (error) {
     console.error("Error:", error);
   }
 };
-
-// const airButton = document.getElementById('airportButton');
-// airButton.addEventListener('click', () => {
-//   getAirportData()
-// })
 
 // All information is verified coming through as should, next steps are sorting
 // and parsing data into usable formats.
