@@ -2,8 +2,18 @@
 
 let input = ''
 
+const enter = (event) => {
+  if (event.keyCode === 13) {
+    location.reload();
+  }
+}
+
+document.getElementById('nav-box').addEventListener('keydown', enter);
+
 document.addEventListener("DOMContentLoaded", () => {
+
   var inputElement = document.getElementById("nav-box");
+
   input = inputElement.value;
   
   let ident = input.toUpperCase();
