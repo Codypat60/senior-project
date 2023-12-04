@@ -48,6 +48,15 @@ body {
     cursor: pointer;
 }
 
+#top-time-p {
+    padding: 20px;
+    background-color: #F0F8FF;
+    margin-left: 10px;
+    font-size: larger;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
 .top-img {
     width: 200px;
     height: 70px;

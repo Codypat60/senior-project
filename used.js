@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
   input = inputElement.value;
   
   let ident = input.toUpperCase();
+
+  if (ident == "") {
+    ident = "KHUF"
+  }
   
   window.onload = function () {
     getMetarData(ident);
@@ -93,7 +97,9 @@ const getMetarData = async (ident) => {
 
     let time = `${hours}:${minutes} UTC`;
 
-    document.getElementById("first-bottom-p").innerText = time;
+    document.getElementById("top-time-p").innerText = time;
+
+    document.getElementById("first-bottom-p").innerText = metarData[0].rawOb
 
     let dir = "";
 
