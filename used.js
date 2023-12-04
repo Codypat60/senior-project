@@ -1,6 +1,6 @@
 
 
-let input = ''
+let input = ""
 
 const enter = (event) => {
   if (event.keyCode === 13) {
@@ -8,7 +8,7 @@ const enter = (event) => {
   }
 }
 
-document.getElementById('nav-box').addEventListener('keydown', enter);
+document.getElementById("nav-box").addEventListener("keydown", enter);
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -198,7 +198,7 @@ const getAirportData = async (ident) => {
 
     ele = document.getElementById("first-top-p-4")
 
-    let freqText = ''
+    let freqText = ""
 
     for (let i = 0; i < frequency.length; i ++) {
       if (i > 0) {
@@ -207,7 +207,11 @@ const getAirportData = async (ident) => {
       freqText += `${frequency[i].freq}`;
     }
 
-    ele.innerText = `Frequencies: ${freqText}`
+    if (freqText == "undefined") {
+      ele.innerText = "No Frequencies Listed"
+    } else {
+      ele.innerText = `Frequencies: ${freqText}`
+    }
     
     document.getElementById("first-top-p-2").innerText = airportData[0].state;
     document.getElementById("first-top-p-1").innerText = airportData[0].id;
@@ -215,7 +219,7 @@ const getAirportData = async (ident) => {
     const id = `first-top-p-3`;
     ele = document.getElementById(id);
     
-    let runwaysText = '';
+    let runwaysText ="";
     
     for (let i = 0; i < runways.length; i++) {
       if (i > 0) {
