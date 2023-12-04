@@ -59,6 +59,10 @@ const getMetarData = async (ident) => {
     let tmp = (metarData[0].temp * 1.8 + 32).toFixed(2);
     let dew = (metarData[0].dewp * 1.8 + 32).toFixed(2);
 
+    if (dew == tmp) {
+      document.getElementById("second-top-p-3").innerText = `Increased likelyhood for ice to form on surface of fuselage and carburetor icing`
+    }
+
     document.getElementById("second-top-p").innerText = `Currently ${tmp}°F`;
     document.getElementById("second-top-p-2").innerText = `Dew Point: ${dew}°F`;
 
